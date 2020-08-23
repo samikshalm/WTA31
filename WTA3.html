@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drop</title>
+    <style>
+    	select, p, input {
+        	font: 1em Calibri;
+        }
+body{ background-color:#92a8d1;
+       }
+p{   color: red; margin:10px 5 px;  font-family: Sitka Small;
+  font-size: 160%; text-align:center;}
+h1{ color:black; font-family: Sylfaen; text-align:center;
+  font-size: 500%;}
+
+    </style>
+</head>
+<body>
+ <h1> Restaurant</h1>
+    <p>
+        <input type="button" 
+            style="margin:10px 0;" 
+              onclick="populateSelect()" 
+value="Click to get list"  
+<!--The SELECT element.-->
+    <select id="sel" onchange="show(this)">
+        
+        <option value="">-- Select --</option>
+    </select>
+
+           
+    </p>
+
+    
+
+    <p id="msg"></p>
+
+    
+</body>
+
+<script>
+    function populateSelect() {
+        // THE JSON ARRAY.
+        var short_name = [
+{
+    "id": 1090,
+    "short_name": "L22",
+    
+   
+   }, 
+   {
+    
+    "id": 1091,
+    "short_name": "L23"
+    
+   }, 
+   {
+    
+    "id": 1092,
+    "short_name": "L24"
+   
+   }, 
+   {
+    "id": 1093,
+    "short_name": "L26"
+  
+   }, 
+   {"id": 1094,
+    "short_name": "L27"
+   }, 
+   {
+    
+            "id": 1095,
+            "short_name": "L28"
+  
+   }, 
+   {
+    "id": 947,
+    "short_name": "V5"
+    
+   }, 
+   {
+        "id": 949,
+            "short_name": "V7",
+   
+   }, 
+   {
+    "id": 952,
+            "short_name": "DK3"
+   
+   }, 
+   {
+    "id": 953,
+            "short_name": "VG1"
+   
+   }, 
+   {
+    "id": 954,
+            "short_name": "VG2"
+   
+   }, 
+   {
+    "id": 955,
+            "short_name": "VG3"
+   
+   }, 
+   {"id": 956,
+            "short_name": "VG4"
+ 
+   }, 
+   {
+    "id": 957,
+            "short_name": "VG5"
+   
+   }, 
+   {
+    "id": 958,
+            "short_name": "VG6"
+   
+   }, 
+   {
+    "id": 959,
+            "short_name": "VG7"
+   
+   }, 
+   {
+    "id": 960,
+            "short_name": "VG8"
+   
+   }, 
+  
+   
+   
+  
+];
+
+        var ele = document.getElementById('sel');
+        for (var i = 0; i < Restaurant.length; i++) {
+            // POPULATE SELECT ELEMENT WITH JSON.
+            ele.innerHTML = ele.innerHTML +
+                '<option value="' + Restaurant[i]['id'] + '">' +Restaurant[i]['short_name'] + '</option>';
+        }
+    }
+
+    function show(ele) {
+        // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
+        var msg = document.getElementById('msg');
+        msg.innerHTML = 'Selected country: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>'  +
+            'id: <b>' + ele.value + '</b>';
+    }
+</script>
+</html>
